@@ -1,0 +1,632 @@
+{
+  "schema_name": "shared_requirements_pipeline",
+  "schema_version": "1.0.0",
+  "document_id": "REQ-SALON-001",
+  "current_stage": "project_2_complete",
+  "metadata": {
+    "project_title": "Hair Salon Appointment Booking System",
+    "academic_year": "2025-26",
+    "created_at": "2026-08-01T17:32:00+01:00",
+    "last_updated": "2026-08-01T17:32:00+01:00",
+    "language": "en"
+  },
+  "source": {
+    "initial_project_idea": "A hair salon wants an online appointment booking system to reduce phone bookings, avoid double bookings, and allow customers to book services with available stylists online.",
+    "conversation_log_file": "sample_hair_salon_conversation_log.json",
+    "number_of_qa_pairs": 12,
+    "client_confirmed_complete": true
+  },
+  "requirements": {
+    "goals_and_objectives": [
+      {
+        "id": "GOAL-001",
+        "statement": "Reduce staff time spent handling appointment bookings by phone.",
+        "priority": "must",
+        "source_turns": [
+          1
+        ]
+      },
+      {
+        "id": "GOAL-002",
+        "statement": "Allow customers to book hair salon appointments online.",
+        "priority": "must",
+        "source_turns": [
+          2
+        ]
+      },
+      {
+        "id": "GOAL-003",
+        "statement": "Reduce appointment mistakes such as double bookings, wrong services, and incorrect times.",
+        "priority": "must",
+        "source_turns": [
+          3
+        ]
+      }
+    ],
+    "stakeholders": [
+      {
+        "id": "STK-001",
+        "name": "Customer",
+        "role": "Primary user",
+        "needs": [
+          "View available salon services",
+          "Choose an appointment time",
+          "Book an appointment online",
+          "Receive appointment confirmation"
+        ],
+        "source_turns": [
+          4
+        ]
+      },
+      {
+        "id": "STK-002",
+        "name": "Reception staff",
+        "role": "Operational user",
+        "needs": [
+          "View appointment bookings",
+          "Manage customer appointment requests",
+          "Update appointment status"
+        ],
+        "source_turns": [
+          5
+        ]
+      },
+      {
+        "id": "STK-003",
+        "name": "Stylist",
+        "role": "Service provider",
+        "needs": [
+          "View personal appointment schedule",
+          "See customer service details",
+          "Know appointment times and durations"
+        ],
+        "source_turns": [
+          6
+        ]
+      },
+      {
+        "id": "STK-004",
+        "name": "Salon manager",
+        "role": "Admin user",
+        "needs": [
+          "Manage salon services",
+          "Manage stylist availability",
+          "View appointment reports"
+        ],
+        "source_turns": [
+          7
+        ]
+      }
+    ],
+    "functional_requirements": [
+      {
+        "id": "FR-001",
+        "statement": "The system shall allow customers to view available hair salon services.",
+        "actor": "Customer",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer can view a list of salon services",
+          "Customer can see service name and estimated duration",
+          "Customer can see service price"
+        ],
+        "source_turns": [
+          8
+        ]
+      },
+      {
+        "id": "FR-002",
+        "statement": "The system shall allow customers to search available appointment slots by date, service, and stylist.",
+        "actor": "Customer",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer can select a date",
+          "Customer can select a service",
+          "Customer can select a stylist if available",
+          "System shows available appointment times"
+        ],
+        "source_turns": [
+          8
+        ]
+      },
+      {
+        "id": "FR-003",
+        "statement": "The system shall allow customers to book an available appointment online.",
+        "actor": "Customer",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer can choose an available appointment slot",
+          "Customer can enter contact details",
+          "System creates an appointment booking"
+        ],
+        "source_turns": [
+          9
+        ]
+      },
+      {
+        "id": "FR-004",
+        "statement": "The system shall prevent double bookings for the same stylist and time slot.",
+        "actor": "System",
+        "priority": "must",
+        "acceptance_criteria": [
+          "System checks stylist availability before confirming an appointment",
+          "System does not allow two confirmed appointments for the same stylist at the same time"
+        ],
+        "source_turns": [
+          9
+        ]
+      },
+      {
+        "id": "FR-005",
+        "statement": "The system shall send appointment confirmation to the customer.",
+        "actor": "System",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer receives confirmation after booking",
+          "Confirmation includes service name, stylist name, appointment date, and appointment time"
+        ],
+        "source_turns": [
+          10
+        ]
+      },
+      {
+        "id": "FR-006",
+        "statement": "Reception staff shall be able to view and manage appointment bookings.",
+        "actor": "Reception staff",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Staff can view all appointments",
+          "Staff can search appointments by customer name or date",
+          "Staff can update appointment status"
+        ],
+        "source_turns": [
+          11
+        ]
+      },
+      {
+        "id": "FR-007",
+        "statement": "Stylists shall be able to view their own appointment schedule.",
+        "actor": "Stylist",
+        "priority": "should",
+        "acceptance_criteria": [
+          "Stylist can view upcoming appointments",
+          "Stylist can see customer name, service, and appointment time"
+        ],
+        "source_turns": [
+          11
+        ]
+      },
+      {
+        "id": "FR-008",
+        "statement": "The salon manager shall be able to manage services and stylist availability.",
+        "actor": "Salon manager",
+        "priority": "should",
+        "acceptance_criteria": [
+          "Manager can add or update salon services",
+          "Manager can update service prices",
+          "Manager can update stylist working hours"
+        ],
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-001",
+        "category": "usability",
+        "statement": "The system should be easy for customers and staff to use.",
+        "metric": null,
+        "priority": "must",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "NFR-002",
+        "category": "security",
+        "statement": "The system should protect customer personal information.",
+        "metric": null,
+        "priority": "must",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "NFR-003",
+        "category": "performance",
+        "statement": "The system should show available appointment slots quickly.",
+        "metric": null,
+        "priority": "should",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "NFR-004",
+        "category": "reliability",
+        "statement": "The system should keep appointment availability accurate.",
+        "metric": null,
+        "priority": "must",
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "data_requirements": [
+      {
+        "id": "DATA-001",
+        "name": "Customer",
+        "fields": [
+          "full_name",
+          "email_address",
+          "phone_number"
+        ],
+        "purpose": "Used to identify customers and send appointment confirmations.",
+        "sensitivity": "personal",
+        "source_turns": [
+          9
+        ]
+      },
+      {
+        "id": "DATA-002",
+        "name": "Service",
+        "fields": [
+          "service_name",
+          "description",
+          "duration",
+          "price"
+        ],
+        "purpose": "Used to display available salon services to customers.",
+        "sensitivity": "business",
+        "source_turns": [
+          8
+        ]
+      },
+      {
+        "id": "DATA-003",
+        "name": "Stylist",
+        "fields": [
+          "stylist_name",
+          "skills",
+          "working_hours",
+          "availability_status"
+        ],
+        "purpose": "Used to match customers with available stylists.",
+        "sensitivity": "business",
+        "source_turns": [
+          8
+        ]
+      },
+      {
+        "id": "DATA-004",
+        "name": "Appointment",
+        "fields": [
+          "appointment_reference",
+          "customer_id",
+          "stylist_id",
+          "service_id",
+          "appointment_date",
+          "appointment_time",
+          "appointment_status"
+        ],
+        "purpose": "Used to record and manage salon appointments.",
+        "sensitivity": "personal",
+        "source_turns": [
+          9
+        ]
+      }
+    ],
+    "constraints": [
+      {
+        "id": "CON-001",
+        "type": "scope",
+        "statement": "The prototype will focus on online appointment booking, appointment management, service management, and stylist availability.",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "CON-002",
+        "type": "technology",
+        "statement": "The system should be developed as a web-based prototype.",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "CON-003",
+        "type": "time",
+        "statement": "The prototype should be completed within one university semester.",
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "success_criteria": [
+      {
+        "id": "SC-001",
+        "statement": "The system reduces the need for customers to phone the salon for appointment bookings.",
+        "measure": "Compare number of phone bookings before and after system use.",
+        "target": null,
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "SC-002",
+        "statement": "The system reduces double booking mistakes.",
+        "measure": "Number of double booking incidents recorded.",
+        "target": null,
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "SC-003",
+        "statement": "Customers can book appointments more conveniently online.",
+        "measure": "Customer feedback after using the prototype.",
+        "target": null,
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "priorities_and_preferences": [
+      {
+        "id": "PRI-001",
+        "statement": "Viewing services, booking appointments, preventing double bookings, and sending confirmations are the highest priority features.",
+        "priority": "must",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "PRI-002",
+        "statement": "Stylist schedule view and manager reports are optional if time allows.",
+        "priority": "could",
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "risks": [
+      {
+        "id": "RISK-001",
+        "statement": "If stylist availability is not updated correctly, customers may still book unavailable time slots.",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "RISK-002",
+        "statement": "Customer personal data may be exposed if security is not handled properly.",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "RISK-003",
+        "statement": "Appointment duration may be incorrect if different services take different amounts of time.",
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "ASM-001",
+        "statement": "Customers have internet access and are willing to book salon appointments online.",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "ASM-002",
+        "statement": "Salon staff will keep stylist availability and service details up to date.",
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "resources": [
+      {
+        "id": "RES-001",
+        "type": "staff",
+        "statement": "Reception staff, stylists, and salon manager will provide feedback during testing.",
+        "source_turns": [
+          12
+        ]
+      },
+      {
+        "id": "RES-002",
+        "type": "software",
+        "statement": "A web development environment and database will be required for the prototype.",
+        "source_turns": [
+          12
+        ]
+      }
+    ],
+    "unresolved_questions": [
+      {
+        "id": "UQ-001",
+        "question": "Should customers be able to cancel or reschedule appointments online?",
+        "related_requirement_ids": [
+          "FR-003",
+          "FR-006"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "UQ-002",
+        "question": "Will customers need to pay a deposit when booking?",
+        "related_requirement_ids": [
+          "FR-003"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "UQ-003",
+        "question": "Should the system send appointment reminders before the appointment date?",
+        "related_requirement_ids": [
+          "FR-005"
+        ],
+        "status": "open"
+      },
+      {
+        "id": "UQ-004",
+        "question": "What exact response time should be used to measure appointment search performance?",
+        "related_requirement_ids": [
+          "NFR-003"
+        ],
+        "status": "open"
+      }
+    ]
+  },
+  "quality_assurance": {
+    "status": "needs_major_revision",
+    "reviewed_by": "project_2",
+    "reviewed_at": "2026-08-19T21:37:59",
+    "overall_quality_score": 0.64,
+    "score_breakdown": {
+      "section_completeness_score": 1.0,
+      "issue_penalty": 0.6,
+      "total_issues": 14
+    },
+    "analysis_method": "local_llm_with_python_guardrails",
+    "llm_status": "llm_failed_rule_based_used",
+    "issues": [
+      {
+        "requirement_id": "NFR-001",
+        "type": "missing_metric",
+        "severity": "medium",
+        "note": "The non-functional requirement 'The system should be easy for customers and staff to use.' has no measurable metric.",
+        "follow_up_question": "What measurable target should be used for NFR-001?"
+      },
+      {
+        "requirement_id": "NFR-001",
+        "type": "vague_wording",
+        "severity": "medium",
+        "note": "The requirement uses vague wording: 'easy'.",
+        "follow_up_question": "How should 'easy' be defined or measured for NFR-001?"
+      },
+      {
+        "requirement_id": "NFR-002",
+        "type": "missing_metric",
+        "severity": "high",
+        "note": "The non-functional requirement 'The system should protect customer personal information.' has no measurable metric.",
+        "follow_up_question": "What measurable target should be used for NFR-002?"
+      },
+      {
+        "requirement_id": "NFR-003",
+        "type": "missing_metric",
+        "severity": "medium",
+        "note": "The non-functional requirement 'The system should show available appointment slots quickly.' has no measurable metric.",
+        "follow_up_question": "What measurable target should be used for NFR-003?"
+      },
+      {
+        "requirement_id": "NFR-003",
+        "type": "vague_wording",
+        "severity": "medium",
+        "note": "The requirement uses vague wording: 'quickly'.",
+        "follow_up_question": "How should 'quickly' be defined or measured for NFR-003?"
+      },
+      {
+        "requirement_id": "NFR-004",
+        "type": "missing_metric",
+        "severity": "medium",
+        "note": "The non-functional requirement 'The system should keep appointment availability accurate.' has no measurable metric.",
+        "follow_up_question": "What measurable target should be used for NFR-004?"
+      },
+      {
+        "requirement_id": "NFR-004",
+        "type": "vague_wording",
+        "severity": "medium",
+        "note": "The requirement uses vague wording: 'accurate'.",
+        "follow_up_question": "How should 'accurate' be defined or measured for NFR-004?"
+      },
+      {
+        "requirement_id": "SC-001",
+        "type": "missing_target",
+        "severity": "medium",
+        "note": "The success criterion 'The system reduces the need for customers to phone the salon for appointment bookings.' has no target value.",
+        "follow_up_question": "What target value should be used for SC-001?"
+      },
+      {
+        "requirement_id": "SC-002",
+        "type": "missing_target",
+        "severity": "medium",
+        "note": "The success criterion 'The system reduces double booking mistakes.' has no target value.",
+        "follow_up_question": "What target value should be used for SC-002?"
+      },
+      {
+        "requirement_id": "SC-003",
+        "type": "missing_target",
+        "severity": "medium",
+        "note": "The success criterion 'Customers can book appointments more conveniently online.' has no target value.",
+        "follow_up_question": "What target value should be used for SC-003?"
+      },
+      {
+        "requirement_id": "UQ-001",
+        "type": "unresolved_question",
+        "severity": "medium",
+        "note": "There is still an open unresolved question.",
+        "follow_up_question": "Should customers be able to cancel or reschedule appointments online?"
+      },
+      {
+        "requirement_id": "UQ-002",
+        "type": "unresolved_question",
+        "severity": "medium",
+        "note": "There is still an open unresolved question.",
+        "follow_up_question": "Will customers need to pay a deposit when booking?"
+      },
+      {
+        "requirement_id": "UQ-003",
+        "type": "unresolved_question",
+        "severity": "medium",
+        "note": "There is still an open unresolved question.",
+        "follow_up_question": "Should the system send appointment reminders before the appointment date?"
+      },
+      {
+        "requirement_id": "UQ-004",
+        "type": "unresolved_question",
+        "severity": "medium",
+        "note": "There is still an open unresolved question.",
+        "follow_up_question": "What exact response time should be used to measure appointment search performance?"
+      }
+    ],
+    "summary": "The requirements for Hair Salon Appointment Booking System received a quality score of 0.64. The system found 14 issue(s). The analysis used rule-based fallback checks because the LLM output failed validation."
+  },
+  "project_brief": {
+    "status": "not_started",
+    "generated_by": "project_3",
+    "generated_at": null,
+    "title": null,
+    "academic_year": null,
+    "summary": null,
+    "problem_statement": null,
+    "objectives": [],
+    "in_scope": [],
+    "out_of_scope": [],
+    "deliverables": [],
+    "resources": [],
+    "skills_required": [],
+    "effort_breakdown": [],
+    "estimated_person_days": null,
+    "estimated_complexity": null,
+    "risks": []
+  },
+  "pipeline_history": [
+    {
+      "stage": "project_1",
+      "status": "complete",
+      "timestamp": "2026-08-01T17:32:00+01:00",
+      "message": "Sample Project 1-style requirements prepared for Project 2 testing."
+    },
+    {
+      "stage": "project_2",
+      "status": "needs_major_revision",
+      "timestamp": "2026-08-19T21:37:59",
+      "message": "Requirements reviewed by Project 2 quality and gap analysis prototype."
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "schema_name": "shared_requirements_pipeline",
+  "schema_version": "1.0.0",
+  "document_id": "REQ-HOTEL-001",
+  "current_stage": "project_1_complete",
+  "metadata": {
+    "project_title": "Hotel Room Booking System",
+    "academic_year": "2025-26",
+    "created_at": "2026-08-01T17:08:00+01:00",
+    "last_updated": "2026-08-01T17:08:00+01:00",
+    "language": "en"
+  },
+  "source": {
+    "initial_project_idea": "A hotel wants an online booking system to reduce phone bookings, avoid double bookings, and allow customers to check room availability and book rooms online.",
+    "conversation_log_file": "sample_hotel_conversation_log.json",
+    "number_of_qa_pairs": 12,
+    "client_confirmed_complete": true
+  },
+  "requirements": {
+    "goals_and_objectives": [
+      {
+        "id": "GOAL-001",
+        "statement": "Reduce staff time spent handling room bookings by phone.",
+        "priority": "must",
+        "source_turns": [1]
+      },
+      {
+        "id": "GOAL-002",
+        "statement": "Allow customers to check room availability and book rooms online.",
+        "priority": "must",
+        "source_turns": [2]
+      },
+      {
+        "id": "GOAL-003",
+        "statement": "Reduce booking mistakes such as double bookings and incorrect dates.",
+        "priority": "must",
+        "source_turns": [3]
+      }
+    ],
+    "stakeholders": [
+      {
+        "id": "STK-001",
+        "name": "Customer",
+        "role": "Primary user",
+        "needs": [
+          "Search available rooms",
+          "Book a room online",
+          "Receive booking confirmation"
+        ],
+        "source_turns": [4]
+      },
+      {
+        "id": "STK-002",
+        "name": "Reception staff",
+        "role": "Operational user",
+        "needs": [
+          "View bookings",
+          "Manage customer booking requests",
+          "Update booking status"
+        ],
+        "source_turns": [5]
+      },
+      {
+        "id": "STK-003",
+        "name": "Hotel manager",
+        "role": "Admin user",
+        "needs": [
+          "View booking reports",
+          "Manage room details",
+          "Monitor booking performance"
+        ],
+        "source_turns": [6]
+      }
+    ],
+    "functional_requirements": [
+      {
+        "id": "FR-001",
+        "statement": "The system shall allow customers to search available rooms by date and number of guests.",
+        "actor": "Customer",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer can select check-in and check-out dates",
+          "Customer can enter number of guests",
+          "System shows available rooms"
+        ],
+        "source_turns": [7]
+      },
+      {
+        "id": "FR-002",
+        "statement": "The system shall allow customers to book an available room online.",
+        "actor": "Customer",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer can choose an available room",
+          "Customer can enter personal details",
+          "System creates a booking record"
+        ],
+        "source_turns": [8]
+      },
+      {
+        "id": "FR-003",
+        "statement": "The system shall prevent double bookings for the same room and date.",
+        "actor": "System",
+        "priority": "must",
+        "acceptance_criteria": [
+          "System checks room availability before confirming booking",
+          "System does not allow two confirmed bookings for the same room on the same date"
+        ],
+        "source_turns": [9]
+      },
+      {
+        "id": "FR-004",
+        "statement": "The system shall send booking confirmation to the customer.",
+        "actor": "System",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Customer receives confirmation after booking",
+          "Confirmation includes booking reference, room details, and booking dates"
+        ],
+        "source_turns": [10]
+      },
+      {
+        "id": "FR-005",
+        "statement": "Reception staff shall be able to view and manage bookings.",
+        "actor": "Reception staff",
+        "priority": "must",
+        "acceptance_criteria": [
+          "Staff can view all bookings",
+          "Staff can search bookings by customer name or booking reference",
+          "Staff can update booking status"
+        ],
+        "source_turns": [11]
+      },
+      {
+        "id": "FR-006",
+        "statement": "The hotel manager shall be able to manage room information.",
+        "actor": "Hotel manager",
+        "priority": "should",
+        "acceptance_criteria": [
+          "Manager can add room details",
+          "Manager can update room price",
+          "Manager can mark rooms as unavailable"
+        ],
+        "source_turns": [12]
+      }
+    ],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-001",
+        "category": "usability",
+        "statement": "The system should be easy for customers and staff to use.",
+        "metric": null,
+        "priority": "must",
+        "source_turns": [12]
+      },
+      {
+        "id": "NFR-002",
+        "category": "security",
+        "statement": "The system should protect customer personal information.",
+        "metric": null,
+        "priority": "must",
+        "source_turns": [12]
+      },
+      {
+        "id": "NFR-003",
+        "category": "performance",
+        "statement": "The system should show search results quickly.",
+        "metric": null,
+        "priority": "should",
+        "source_turns": [12]
+      }
+    ],
+    "data_requirements": [
+      {
+        "id": "DATA-001",
+        "name": "Customer",
+        "fields": [
+          "full_name",
+          "email_address",
+          "phone_number"
+        ],
+        "purpose": "Used to identify the customer and send booking confirmation.",
+        "sensitivity": "personal",
+        "source_turns": [8]
+      },
+      {
+        "id": "DATA-002",
+        "name": "Room",
+        "fields": [
+          "room_number",
+          "room_type",
+          "price_per_night",
+          "availability_status"
+        ],
+        "purpose": "Used to display and manage available hotel rooms.",
+        "sensitivity": "business",
+        "source_turns": [7]
+      },
+      {
+        "id": "DATA-003",
+        "name": "Booking",
+        "fields": [
+          "booking_reference",
+          "customer_id",
+          "room_id",
+          "check_in_date",
+          "check_out_date",
+          "booking_status"
+        ],
+        "purpose": "Used to record customer room bookings.",
+        "sensitivity": "personal",
+        "source_turns": [8]
+      }
+    ],
+    "constraints": [
+      {
+        "id": "CON-001",
+        "type": "scope",
+        "statement": "The prototype will focus on room search, online booking, booking management, and room management.",
+        "source_turns": [12]
+      },
+      {
+        "id": "CON-002",
+        "type": "technology",
+        "statement": "The system should be developed as a web-based prototype.",
+        "source_turns": [12]
+      },
+      {
+        "id": "CON-003",
+        "type": "time",
+        "statement": "The prototype should be completed within one university semester.",
+        "source_turns": [12]
+      }
+    ],
+    "success_criteria": [
+      {
+        "id": "SC-001",
+        "statement": "The system reduces the need for customers to phone the hotel for room bookings.",
+        "measure": "Compare number of phone bookings before and after system use.",
+        "target": null,
+        "source_turns": [12]
+      },
+      {
+        "id": "SC-002",
+        "statement": "The system reduces double booking mistakes.",
+        "measure": "Number of double booking incidents recorded.",
+        "target": null,
+        "source_turns": [12]
+      }
+    ],
+    "priorities_and_preferences": [
+      {
+        "id": "PRI-001",
+        "statement": "Room search, online booking, double booking prevention, and booking confirmation are the highest priority features.",
+        "priority": "must",
+        "source_turns": [12]
+      },
+      {
+        "id": "PRI-002",
+        "statement": "Booking reports and advanced manager dashboard features are optional if time allows.",
+        "priority": "could",
+        "source_turns": [12]
+      }
+    ],
+    "risks": [
+      {
+        "id": "RISK-001",
+        "statement": "If room availability is not updated correctly, customers may still experience booking errors.",
+        "source_turns": [12]
+      },
+      {
+        "id": "RISK-002",
+        "statement": "Customer personal data may be exposed if security is not handled properly.",
+        "source_turns": [12]
+      }
+    ],
+    "assumptions": [
+      {
+        "id": "ASM-001",
+        "statement": "Customers have internet access and are willing to book rooms online.",
+        "source_turns": [12]
+      },
+      {
+        "id": "ASM-002",
+        "statement": "Hotel staff will keep room availability information up to date.",
+        "source_turns": [12]
+      }
+    ],
+    "resources": [
+      {
+        "id": "RES-001",
+        "type": "staff",
+        "statement": "Reception staff and hotel manager will provide feedback during testing.",
+        "source_turns": [12]
+      },
+      {
+        "id": "RES-002",
+        "type": "software",
+        "statement": "A web development environment and database will be required for the prototype.",
+        "source_turns": [12]
+      }
+    ],
+    "unresolved_questions": [
+      {
+        "id": "UQ-001",
+        "question": "Should customers be able to cancel or modify bookings online?",
+        "related_requirement_ids": ["FR-002", "FR-005"],
+        "status": "open"
+      },
+      {
+        "id": "UQ-002",
+        "question": "Will online payment be included in the prototype or handled outside the system?",
+        "related_requirement_ids": ["FR-002"],
+        "status": "open"
+      },
+      {
+        "id": "UQ-003",
+        "question": "What exact response time should be used to measure search performance?",
+        "related_requirement_ids": ["NFR-003"],
+        "status": "open"
+      }
+    ]
+  },
+  "quality_assurance": {
+    "status": "not_started",
+    "reviewed_by": "project_2",
+    "reviewed_at": null,
+    "overall_quality_score": null,
+    "issues": [],
+    "summary": null
+  },
+  "project_brief": {
+    "status": "not_started",
+    "generated_by": "project_3",
+    "generated_at": null,
+    "title": null,
+    "academic_year": null,
+    "summary": null,
+    "problem_statement": null,
+    "objectives": [],
+    "in_scope": [],
+    "out_of_scope": [],
+    "deliverables": [],
+    "resources": [],
+    "skills_required": [],
+    "effort_breakdown": [],
+    "estimated_person_days": null,
+    "estimated_complexity": null,
+    "risks": []
+  },
+  "pipeline_history": [
+    {
+      "stage": "project_1",
+      "status": "complete",
+      "timestamp": "2026-08-01T17:08:00+01:00",
+      "message": "Sample Project 1-style requirements prepared for Project 2 testing."
+    }
+  ]
+}

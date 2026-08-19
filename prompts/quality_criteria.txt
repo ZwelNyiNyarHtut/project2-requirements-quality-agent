@@ -1,0 +1,17 @@
+Requirements quality checklist:
+
+1. The requirements must include clear goals and objectives.
+2. Stakeholders must have names, roles, and needs.
+3. Functional requirements must include an id, statement, actor, priority, and acceptance criteria.
+4. Functional requirements should be clear enough to test.
+5. Non-functional requirements must include a category, statement, priority, and measurable metric.
+6. Data requirements must include entity name, fields, purpose, and sensitivity.
+7. Constraints should describe scope, technology, time, legal, or business limits.
+8. Success criteria must include a statement, measure, and target value.
+9. Risks and assumptions should be recorded.
+10. Priorities should show what is must, should, could, or optional.
+11. Open unresolved questions must be treated as gaps.
+12. Vague words such as easy, quickly, fast, secure, reliable, simple, good, accurate, or user-friendly should be clarified.
+13. Missing metrics, missing targets, missing actors, missing data fields, and open questions should reduce the quality score.
+14. The output must include useful follow-up questions that can help identify missing or unclear requirement details.
+15. The requirements are ready for the next stage only when the important sections are complete and no serious gaps remain.
